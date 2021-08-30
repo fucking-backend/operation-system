@@ -29,8 +29,33 @@ cat /etc/passwd | awk 'BEGIN {FS=":"} $3<10 {print $1 "\t" $3}'
 ### 初识awk
 
 ```bash
+# 使用数字字段变量
+echo "this is Leborn James" | awk '{print $3 "\t" $4}'
+
+# -F 指定分隔符
+awk -F: '{print $1}' /etc/passwd
+
+# 脚本中使用多个命令
+echo "this is Leborn James" | awk '{$1="THIS"; print $0}'
+
+# 从文件中读取脚本 -f指定文件
+# script.wak：  {print $1 "'s home dict is" $6}  
+awk -F: -f script.wak /etc/passwd
+
+# 文件中制定多条命令，无须分号分割
+# {
+#	desc = "'s home dict is"
+#	print $1 desc $6
+# }
+awk -F: -f script.wak /etc/passwd
+
+# 处理数据前后运行脚本（BEGIN END关键字）
+ echo "this is Leborn James" | awk 'BEGIN{print "hello world"} {print $3 "\t" $4} END{print "完结撒花"}'
+
 ```
+
 ### awk进阶
 
 ```bash
+
 ```
