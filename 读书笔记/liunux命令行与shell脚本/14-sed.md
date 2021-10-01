@@ -2,6 +2,87 @@
 
 作用于一整行的处理
 
+**sed 命令是一个非交互式文本编辑器。 sed Linux 命令根据您提供的规则编辑数据；**
+
+
+### 31+ Examples for sed Linux Command in Text Manipulation
+
+```bash
+
+# 1.  sed Linux coUnderstandmmand
+echo "Welcome to LikeGeeks page" | sed "s/page/website/"
+# 作用于文件，多行
+sed "s/page/website/" test.txt 
+
+# Sed Linux command doesn’t update your data. It only sends the changed text to STDOUT. The file is still untouched. If you need to overwrite the existing content, you can check our previous post, which was talking about redirections.
+# Sed Linux 命令不会更新您的数据。 它只将更改后的文本发送到 STDOUT。 该文件仍然保持不变。 如果您需要覆盖现有内容，您可以查看我们之前的帖子，该帖子讨论了重定向。 
+
+# 2. 使用 -e参数。Using multiple sed Linux commands in the command line
+# You must separate sed commands by a semicolon without any spaces.
+sed -e 's/This/That/; s/test/another test/' ./myfile
+
+# 3. Reading commands from a file
+# You can save your sed commands in a file and use them by specifying the file using -f option.
+sed -f mycommands myfile
+
+# 4. Substituting flags替换标志
+# sed 默认只替换第一个匹配的字符
+# 四种替换标志：g(全部替换),a number（替换每一行的第几个）,w file（将结果输出到文件）,p（未知）
+
+# 5. Replace characters。You can use the exclamation mark (!) as string delimiter
+sed 's/\/bin\/bash/\/bin\/csh/' /etc/passwd
+sed 's!/bin/bash!/bin/csh!' /etc/passwd
+
+# 6. Limiting sed
+# Sed command processes your entire file. However, you can limit the sed command to process specific lines; there are two ways:
+
+## (1) A range of lines.
+## (2) A pattern that matches a specific line.
+## (3) You can use regular expressions to write this pattern to be more generic and useful.
+sed '2s/test/another test/' myfile
+sed '2,3s/test/another test/' myfile
+sed '2,$s/test/another test/' myfile
+
+# 7. Delete lines. 
+# The delete flag deletes the text from the stream, not the original file.
+sed '2d' myfile
+sed '2,3d' myfile
+sed '3,$d' myfile
+sed '/test 1/d' myfile
+sed '/second/,/fourth/d' myfile
+
+
+# 8. Insert(The (i) flag) and append(The (a) flag) text.
+echo "Another test" | sed 'i\First test '
+echo "Another test" | sed 'a\First test '
+sed '2i\This is the inserted line.' myfile
+sed '2a\This is the appended line.' myfile
+
+# 9. Modifying lines.To modify a specific line, you can use the (c) flag
+## You can use a regular expression pattern, and all lines match that pattern will be modified.
+sed '3c\This is a modified line.' myfile
+sed '/123/c 6666666' 1717.txt 
+
+
+# 10. Transform characters.transform flag (y) 
+sed 'y/123/456' 1717.txt
+
+# 11. Print line numbers.You can print line number using the (=) sign 
+sed '=' myfile
+# However, by using -n combined with the equal sign, the sed command displays the line number that contains matching.
+sed -n '/test/=' myfile
+
+
+# 12. Read data from a file.
+sed '3r newfile' myfile # 把newfile中的内容，添加到myfile的第三行之后
+
+
+
+### question: Suppose that we have a file that contains text with a placeholder, and we have another file that contains the data that will fill the placeholder on the other file.
+
+
+
+```
 ### 基本使用
 
 ```bash
@@ -186,8 +267,4 @@ echo "that furry cat is pretty" | sed 's/furry \(.at\)/\1/'
 # ************************* sed实用工具 *************************
 
 
-
-
-
-
-｀｀｀
+```
