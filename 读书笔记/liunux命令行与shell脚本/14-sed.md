@@ -79,6 +79,10 @@ sed '3r newfile' myfile # 把newfile中的内容，添加到myfile的第三行�
 
 
 ### question: Suppose that we have a file that contains text with a placeholder, and we have another file that contains the data that will fill the placeholder on the other file.
+## 这个没看懂
+Sed '/DATA>/ {
+r newfile
+d}' myfile
 
 
 

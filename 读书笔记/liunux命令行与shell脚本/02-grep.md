@@ -49,3 +49,10 @@ grep -A 4"games" /etc/passwd # 使用-A参数输出匹配行的后4行
 grep -C 4"games" /etc/passwd # 使用-C参数输出匹配行的前后各4行
 
 ```
+
+
+### Grep command in Linux
+
+```bash
+
+```
