@@ -12,3 +12,7 @@
     《鸟哥的Linux私房菜》
     《Linux就该这么学》
     
+
+### virtualbox + ubuntu18
+
+https://blog.csdn.net/qq_38628350/article/details/86656530
