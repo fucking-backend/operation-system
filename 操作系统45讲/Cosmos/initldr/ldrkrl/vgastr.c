@@ -1,7 +1,7 @@
 /**********************************************************
 		转换显示字符串文件vgastr.c
 ***********************************************************
-				彭东 ＠ 2011.12.15.07.30
+				彭东
 **********************************************************/
 
 #include "cmctl.h"
@@ -18,13 +18,12 @@ void init_curs()
     return;
 }
 
-void _strwrite(char_t *str, cursor_t *cursptr)
+void GxH_strwrite(char_t *str, cursor_t *cursptr)
 {
 
     uint_t straddr = cursptr->x + cursptr->y * 80 * 2;
     char_t *p_strdst = (char_t *)(cursptr->vmem_s + straddr);
     u32_t tfindx = FALSE;
-
     while (*str)
     {
 
@@ -168,10 +167,10 @@ void vsprintfk(char_t *buf, const char_t *fmt, va_list_t args)
 void kprint(const char_t *fmt, ...)
 {
     char_t buf[512];
-
+ 
     va_list_t arg = (va_list_t)((char_t *)(&fmt) + sizeof(long));
 
     vsprintfk(buf, fmt, arg);
-    _strwrite(buf, &curs);
+    GxH_strwrite(buf, &curs);
     return;
 }

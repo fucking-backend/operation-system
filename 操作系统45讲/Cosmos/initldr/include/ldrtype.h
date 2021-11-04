@@ -141,7 +141,14 @@ typedef struct s_IDTR
 
 typedef struct s_RWHDPACK
 {
-
+    //hd_addr_packet:		db	0x10		; [ 0] Packet size in bytes.
+      //          db	0		; [ 1] Reserved, must be 0.
+    //hd_sect_nr:		db	0		; [ 2] Nr of blocks to transfer.
+   //             db	0		; [ 3] Reserved, must be 0.
+   //o_ffset:		dw	0		; [ 4] Addr of transfer - Offset
+    //s_eg:			dw	0		; [ 6] buffer.          - Seg
+    //lba_l:			dd	0		; [ 8] LBA. Low  32-bits.
+    //lba_h:			dd	0		; [12] LBA. High 32-bits.
     u8_t rwhpk_sz;
     u8_t rwhpk_rv;
     u8_t rwhpk_sn;
@@ -157,7 +164,6 @@ typedef struct s_RWHDPACK
 #define RAM_ACPIREC 3
 #define RAM_ACPINVS 4
 #define RAM_AREACON 5
-
 typedef struct s_e820{
     u64_t saddr;    /* start of memory segment8 */
     u64_t lsize;    /* size of memory segment8 */

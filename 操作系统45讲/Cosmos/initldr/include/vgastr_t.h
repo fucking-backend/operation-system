@@ -22,8 +22,6 @@
 
 typedef struct s_CURSOR
 {
-    //spinlock_t c_lock;
-    //spinlock_t p_lock;
     uint_t vmem_s;
     uint_t vmem_e;
     uint_t cvmemadr;
@@ -33,3 +31,4 @@ typedef struct s_CURSOR
 }cursor_t; 
 
 #endif
+

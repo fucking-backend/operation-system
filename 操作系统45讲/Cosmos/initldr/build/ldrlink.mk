@@ -1,9 +1,9 @@
 include krnlbuidcmd.mh
 include ldrobjs.mh
-.PHONY : all everything build_kernel img
+.PHONY : all everything build_kernel
 all: build_kernel 
 #INITLDR
-build_kernel:everything build_bin img
+build_kernel:everything build_bin
 everything : $(INITLDRIMH_ELF) $(INITLDRKRL_ELF) $(INITLDRSVE_ELF)
 build_bin:$(INITLDRIMH) $(INITLDRKRL) $(INITLDRSVE)
 
@@ -22,6 +22,3 @@ $(INITLDRKRL):$(INITLDRKRL_ELF)
 $(INITLDRSVE):$(INITLDRSVE_ELF)
 	$(OBJCOPY) $(OJCYFLAGS) $< $@
 	@echo 'OBJCOPY -[M] 正在构建...' $@ 
-
-img:
-	./lmoskrlimg -m k -lhf $(INITLDRIMH) -o Cosmos.eki -f $(INITLDRKRL) $(INITLDRSVE)

@@ -1,3 +1,4 @@
+
 MAKEFLAGS = -s
 HEADFILE_PATH = ../include/
 KRNLBOOT_PATH = ../ldrkrl/

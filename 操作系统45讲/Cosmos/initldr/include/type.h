@@ -7,20 +7,13 @@
 #define _TYPE_H
 
 
-typedef unsigned char u8_t; //__attribute__((__mode__(__QI__))) u8_t;
-
-typedef unsigned short u16_t; //__attribute__((__mode__(__HI__))) u16_t;
-
-typedef unsigned int u32_t;//__attribute__((__mode__(__SI__))) u32_t;
-
-typedef unsigned long long u64_t; //__attribute__((__mode__(__DI__))) u64_t;
-
-typedef char s8_t; //__attribute__((__mode__(__QI__))) u8_t;
-
-typedef short s16_t; //__attribute__((__mode__(__HI__))) u16_t;
-
-typedef int s32_t;//__attribute__((__mode__(__SI__))) u32_t;
-
+typedef unsigned char u8_t;
+typedef unsigned short u16_t;
+typedef unsigned int u32_t;
+typedef unsigned long long u64_t; 
+typedef char s8_t;
+typedef short s16_t;
+typedef int s32_t;
 typedef long long s64_t;
 
 typedef long sint_t;

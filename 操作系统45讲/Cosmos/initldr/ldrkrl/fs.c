@@ -21,7 +21,6 @@ int strcmpl(const char *a, const char *b)
 
 fhdsc_t *get_fileinfo(char_t *fname, machbstart_t *mbsp)
 {
-
     mlosrddsc_t *mrddadrs = (mlosrddsc_t *)((u32_t)(mbsp->mb_imgpadr + MLOSDSC_OFF));
     if (mrddadrs->mdc_endgic != MDC_ENDGIC ||
         mrddadrs->mdc_rv != MDC_RVGIC ||
@@ -75,7 +74,7 @@ int move_krlimg(machbstart_t *mbsp, u64_t cpyadr, u64_t cpysz)
 
 void init_krlfile(machbstart_t *mbsp)
 {
-    u64_t sz = r_file_to_padr(mbsp, IMGKRNL_PHYADR, "kernel.bin");
+    u64_t sz = r_file_to_padr(mbsp, IMGKRNL_PHYADR, "Cosmos.bin");
     if (0 == sz)
     {
         kerror("r_file_to_padr err");

@@ -1,7 +1,13 @@
+/**********************************************************
+		系统全局内存检查文件chkcpmm.c
+***********************************************************
+				彭东 
+**********************************************************/
 #include "cmctl.h"
 
 unsigned int acpi_get_bios_ebda()
 {
+
     unsigned int address = *(unsigned short *)0x40E;
     address <<= 4;
     return address;
@@ -19,6 +25,7 @@ int acpi_checksum(unsigned char *ap, s32_t len)
 
 mrsdp_t *acpi_rsdp_isok(mrsdp_t *rdp)
 {
+
     if (rdp->rp_len == 0 || rdp->rp_revn == 0)
     {
         return NULL;
@@ -44,6 +51,7 @@ mrsdp_t *findacpi_rsdp_core(void *findstart, u32_t findlen)
     mrsdp_t *retdrp = NULL;
     for (u64_t i = 0; i <= findlen; i++)
     {
+
         if (('R' == tmpdp[i]) && ('S' == tmpdp[i + 1]) && ('D' == tmpdp[i + 2]) && (' ' == tmpdp[i + 3]) &&
             ('P' == tmpdp[i + 4]) && ('T' == tmpdp[i + 5]) && ('R' == tmpdp[i + 6]) && (' ' == tmpdp[i + 7]))
         {
@@ -57,7 +65,7 @@ mrsdp_t *findacpi_rsdp_core(void *findstart, u32_t findlen)
     return NULL;
 }
 
-mrsdp_t *find_acpi_rsdp()
+PUBLIC mrsdp_t *find_acpi_rsdp()
 {
 
     void *fndp = (void *)acpi_get_bios_ebda();
@@ -66,7 +74,7 @@ mrsdp_t *find_acpi_rsdp()
     {
         return rdp;
     }
-
+    //0E0000h和0FFFFFH
     fndp = (void *)(0xe0000);
     rdp = findacpi_rsdp_core(fndp, (0xfffff - 0xe0000));
     if (NULL != rdp)
@@ -76,7 +84,7 @@ mrsdp_t *find_acpi_rsdp()
     return NULL;
 }
 
-void init_acpi(machbstart_t *mbsp)
+PUBLIC void init_acpi(machbstart_t *mbsp)
 {
     mrsdp_t *rdp = NULL;
     rdp = find_acpi_rsdp();
@@ -147,12 +155,12 @@ void init_bstartpages(machbstart_t *mbsp)
     u64_t *pde = (u64_t *)(KINITPAGE_PHYADR + 0x2000);
 
     u64_t adr = 0;
-
+    
     if (1 > move_krlimg(mbsp, (u64_t)(KINITPAGE_PHYADR), (0x1000 * 16 + 0x2000)))
     {
         kerror("move_krlimg err");
     }
-
+    
     for (uint_t mi = 0; mi < PGENTY_SIZE; mi++)
     {
         p[mi] = 0;
@@ -290,6 +298,8 @@ void init_chkmm()
     u16_t *map_nr = (u16_t *)EMAP_NR_PTR;
     u64_t mmsz = 0;
 
+
+
     for (int j = 0; j < (*map_nr); j++)
     {
         if (map->type == RAM_USABLE)
@@ -299,7 +309,7 @@ void init_chkmm()
         map++;
     }
 
-    if (mmsz < BASE_MEM_SZ) //0x3F00000
+    if (mmsz < BASE_MEM_SZ)
     {
         kprint("Your computer is low on memory, the memory cannot be less than 64MB!");
         CLI_HALT();
@@ -344,7 +354,7 @@ void init_bstartpagesold(machbstart_t *mbsp)
         kerror("ip_moveimg err");
     }
 
-    pt64_t *pml4p = (pt64_t *)PML4T_BADR, *pdptp = (pt64_t *)PDPTE_BADR, *pdep = (pt64_t *)PDE_BADR; 
+    pt64_t *pml4p = (pt64_t *)PML4T_BADR, *pdptp = (pt64_t *)PDPTE_BADR, *pdep = (pt64_t *)PDE_BADR; //*ptep=(pt64_t*)PTE_BADR;
     for (int pi = 0; pi < PG_SIZE; pi++)
     {
         pml4p[pi] = 0;
@@ -379,11 +389,12 @@ void ldr_createpage_and_open()
         pml4p[pi] = 0;
         pdptp[pi] = 0;
         pdep[pi] = 0;
+    
     }
 
     pml4p[0] = 0 | PDPTE_BADR | PDT_S_RW | PDT_S_PNT;
     pdptp[0] = 0 | PDE_BADR | PDT_S_RW | PDT_S_PNT;
-  
+
     pml4p[256] = 0 | PDPTE_BADR | PDT_S_RW | PDT_S_PNT;
 
     pt64_t tmpba = 0, tmpbd = 0 | PDT_S_SIZE | PDT_S_RW | PDT_S_PNT;
@@ -394,6 +405,5 @@ void ldr_createpage_and_open()
         tmpba += 0x200000;
         tmpbd = tmpba | PDT_S_SIZE | PDT_S_RW | PDT_S_PNT;
     }
-
     return;
 }

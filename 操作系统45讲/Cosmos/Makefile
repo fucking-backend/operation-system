@@ -1,3 +1,8 @@
+###################################################################
+#		主控自动化编译配置文件 Makefile			                      #
+#				彭东                                               #
+###################################################################
+
 MAKEFLAGS = -sR
 
 MKDIR = mkdir
@@ -32,6 +37,7 @@ EXKNL_PATH = ./exckrnl
 DSTPATH = ../exckrnl
 RELEDSTPATH = ../release
 INITLDR_BUILD_PATH =./initldr/build/
+INITLDR_PATH =./initldr/
 CPLILDR_PATH =./release/
 INSTALL_PATH =/boot/
 INSTALLSRCFILE_PATH =./release/Cosmos.eki
@@ -53,10 +59,11 @@ all:
 	$(MAKE) $(X86BARD)
 	@echo '恭喜我，系统编译构建完成！ ^_^'
 clean:
+	$(CD) $(INITLDR_PATH); $(MAKE) clean
 	$(CD) $(BUILD_PATH); $(RM) -f *.o *.bin *.i *.krnl *.s *.map *.lib *.btoj *.vdi *.elf *vmdk *.lds *.mk *.mki krnlobjs.mh
 	$(CD) $(EXKNL_PATH); $(RM) -f *.o *.bin *.i *.krnl *.s *.map *.lib *.btoj *.vdi *.elf *vmdk *.lds *.mk *.mki krnlobjs.mh
 	$(CD) $(CPLILDR_PATH); $(RM) -f *.o *.bin *.i *.krnl *.s *.eki *.map *.lib *.btoj *.elf *.vdi *vmdk *.lds *.mk *.mki krnlobjs.mh
-	@echo '清理全部已构建文件... ^_^'
+	@echo 'Cosmos:清理全部已构建文件... ^_^'
 
 print:
 	@echo '*********正在开始编译构建系统*************'
