@@ -118,3 +118,7 @@ E. 进行logo显示
         到ldrkrl32.asm的call ldrkrl_entry
         再往下是jmp 0x2000000
         这个地址就是IMGKRNL_PHYADR，就是刚才放Cosmos.eki的位置
+
+
+### question
+

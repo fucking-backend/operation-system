@@ -12,5 +12,11 @@
     《深入linux内核架构》
     《Linux内核完全注释》
     《操作系统45讲——彭东》
+    https://shimo.im/docs/PgF2AVpTWWg7LPAR
     《深度探索嵌入式操作系统》
+
+
+### 计算机组成原理参考书
+
+    
     
