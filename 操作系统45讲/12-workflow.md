@@ -1,5 +1,6 @@
 ## workflow
 
+```sh
 1. bstartparm.c从init_bstartparm函数开始
 
 A. 初始化machbstart_t
@@ -119,6 +120,8 @@ E. 进行logo显示
         再往下是jmp 0x2000000
         这个地址就是IMGKRNL_PHYADR，就是刚才放Cosmos.eki的位置
 
+
+```
 
 ### question
 
