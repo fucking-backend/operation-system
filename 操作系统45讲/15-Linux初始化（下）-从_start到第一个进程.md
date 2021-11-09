@@ -1,4 +1,4 @@
-## Linux初始化（下）：从_start到第一个进程
+## Linux初始化（下）：从_start到第一个进程 （ question 复杂 ）
 
 ### 解压后内核初始化
 ### 为何要从 _start 开始

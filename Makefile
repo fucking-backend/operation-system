@@ -1,5 +1,5 @@
 workplace = ~/Desktop/fubao-learning/operation-system
-commit_reason = "next 内存管理"
+commit_reason = "prepare阶段"
 push:
 	cd $(workplace)
 	git status
