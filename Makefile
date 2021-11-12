@@ -1,5 +1,5 @@
 workplace = ~/Desktop/fubao-learning/operation-system
-commit_reason = "内存管理完结"
+commit_reason = "进程，CPU抽象"
 push:
 	cd $(workplace)
 	git status
