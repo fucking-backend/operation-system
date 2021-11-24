@@ -28,5 +28,6 @@
     《What Every Programmer Should Know About Memory》
     《编码：隐匿在计算机软硬件背后的语言》
     《程序员的自我修养：链接、装载和库》
+    《大话计算机》
     
     
