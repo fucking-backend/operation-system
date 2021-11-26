@@ -1,5 +1,5 @@
 workplace = ~/Desktop/fubao-learning/operation-system
-commit_reason = "计组ing"
+commit_reason = "删除hello-world"
 push:
 	cd $(workplace)
 	git status
