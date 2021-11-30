@@ -26,3 +26,5 @@
 ### Resource
 
 [课程源代码](https://gitee.com/lmos/cosmos)
+
+[【操作系统实战】交流群核心问题汇总](https://shimo.im/docs/PgF2AVpTWWg7LPAR)

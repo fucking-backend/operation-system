@@ -1,5 +1,5 @@
 workplace = ~/Desktop/fubao-learning/operation-system
-commit_reason = "HelloOS"
+commit_reason = "part11"
 push:
 	cd $(workplace)
 	git status
