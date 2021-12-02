@@ -1,5 +1,5 @@
 workplace = ~/Desktop/fubao-learning/operation-system
-commit_reason = "part11"
+commit_reason = "Linux初始化"
 push:
 	cd $(workplace)
 	git status
