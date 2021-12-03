@@ -14,6 +14,19 @@
     《操作系统45讲——彭东》
     《深度探索嵌入式操作系统》
 
+### Lab实验
+
+[6.828](https://pdos.csail.mit.edu/6.828/2017/)
+
+[给操作系统捋条线 6.828](https://github.com/Rand312/xv6)
+
+[MIT6.828-神级OS课程](https://zhuanlan.zhihu.com/p/74028717)
+
+[南京大学计算机实验](https://nju-projectn.github.io/ics-pa-gitbook/ics2020/)
+
+[清华rCore](https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/index.html)
+
+[清华uCore](https://github.com/kiukotsu/ucore)
 
 ### 计算机组成原理参考书
 
