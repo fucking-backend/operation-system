@@ -1,8 +1,8 @@
 ```sh
 一、整理一下结构
-1、进程的内存地址空间用一个 mmadrsdsc_t结构表示
-2、mmadrsdsc_t结构中包括一个virmemadrs_t结构，管理了进程全部kmvarsdsc_t结构【虚拟地址空间】
-3、每个kmvarsdsc_t【虚拟地址空间】，都包括一个kvmemcbox_t结构【页面盒子】
+1、【进程的内存地址空间】用一个 mmadrsdsc_t 结构表示
+2、mmadrsdsc_t结构中包括一个virmemadrs_t结构【整个虚拟地址空间】，管理了进程全部kmvarsdsc_t结构【虚拟地址区间】
+3、每个kmvarsdsc_t【虚拟地址区间】，都包括一个kvmemcbox_t结构【页面盒子】
 4、每个kvmemcbox_t【页面盒子】，管理虚拟地址空间与物理内存页面的关系，并记录了物理内存页面对应的 msadsc_t 结构【页面】
 5、每个msadsc_t结构，是一个页面
 6、为了管理方便，操作系统有一个全局kvmemcboxmgr_t结构，统一管理全部kvmemcbox_t
@@ -15,7 +15,7 @@ vma_new_vadrs
 2、如果可以复用找到的kmvarsdsc_t结构，扩容
 3、如果无法复用，创建新的kmvarsdsc_t结构，加入到 virmemadrs_t【按地址有序】
 
-其中，vma_find_kmvarsdsc->vma_find_kmvarsdsc_is_ok的查找过程为
+其中，vma_find_kmvarsdsc->vma_find_kmvarsdsc_is_ok的查找过程为：
 依次检查virmemadrs_t中全部 kmvarsdsc_t结构：
 1、如果没有指定起始地址，则判断当前kmvarsdsc_t与下一个kmvarsdsc_t之间，是否有未分配的虚拟地址，长度满足要求
 2、如果制定了起始地址，则判断当前kmvarsdsc_t与 下一个kmvarsdsc_t之间，，是否有未分配的虚拟地址，起始地址和长度都满足要求
