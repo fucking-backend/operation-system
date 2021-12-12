@@ -3,17 +3,17 @@
 
 ```sh
 1、bstartparm.c从init_bstartparm函数开始
-A、初始化machbstart_t
+    A、初始化machbstart_t
 
 2、跳转到chkcpmm.c的init_chkcpu函数，检查是否支持CPUID功能
-A、init_chkcpu函数
-CPU自带检查方式：无法反转 Eflags第21位，表示CPU支持CPUID功能
-如果反转成功，说明不支持CPUID，打印内核错误并退出
-B、然后调用CPUID功能，判断是否支持长模式
-先通过通过0x80000000参数，调用cpuid命令，判断CPU是否支持扩展处理器信息【返回值比0x80000000大】
-如果支持，通过0x80000001参数，调用cpuid命令，获取扩展处理器信息，然后检测第29位，判断是否支持长模式
-如果不支持，打印内核错误并退出
-C、设置mbsp中cpumode为64位
+    A、init_chkcpu函数
+        CPU自带检查方式：无法反转 Eflags第21位，表示CPU支持CPUID功能
+        如果反转成功，说明不支持CPUID，打印内核错误并退出
+    B、然后调用CPUID功能，判断是否支持长模式
+        先通过通过0x80000000参数，调用cpuid命令，判断CPU是否支持扩展处理器信息【返回值比0x80000000大】
+        如果支持，通过0x80000001参数，调用cpuid命令，获取扩展处理器信息，然后检测第29位，判断是否支持长模式
+        如果不支持，打印内核错误并退出
+    C、设置mbsp中cpumode为64位
 
 3、返回chkcpmm.c，继续检测内存信息
 A、跳转到chkcpmm.c的init_mem函数

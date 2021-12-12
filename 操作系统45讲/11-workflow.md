@@ -1,10 +1,9 @@
 ## workflow
 
 ```sh
-1、grub启动后，选择对应的启动菜单项，grub会通过自带文件系统驱动，定位到对应的eki文件
+1、grub启动后，选择对应的启动菜单项，grub会通过自带文件系统驱动，定位到对应的eki文件（Cosmos.eki）
 
-2、grub会尝试加载eki文件【eki文件需要满足grub多协议引导头的格式要求】
-这些是在imginithead.asm中实现的，所以要包括：
+2、grub会尝试加载eki文件【eki文件需要满足grub多协议引导头的格式要求】。这些是在imginithead.asm中实现的，所以要包括：
     A、grub文件头，包括魔数、grub1和grub2支持等
     B、定位的_start符号等
 
@@ -17,8 +16,8 @@
 4、inithead_entry.c
     A、从imginithead.asm进入后，首先进入函数调用inithead_entry
     B、初始化光标，清屏
-    C、从eki文件内部，找到initldrsve.bin文件，并分别拷贝到内存的指定物理地址
-    D、从eki文件内部，找到initldrkrl.bin文件，并分别拷贝到内存的指定物理地址
+    C、从eki文件内部，找到initldrsve.bin文件（realintsve.asm 文件编译而成），并拷贝到内存的指定物理地址
+    D、从eki文件内部，找到initldrkrl.bin文件，并拷贝到内存的指定物理地址
     E、返回imginithead.asm
 
 5、imginithead.asm中继续执行
