@@ -5,7 +5,7 @@
 1、bstartparm.c从init_bstartparm函数开始
     A、初始化machbstart_t
 
-2、跳转到chkcpmm.c的init_chkcpu函数，检查是否支持CPUID功能
+2、检查CPU。跳转到chkcpmm.c的init_chkcpu函数，检查是否支持CPUID功能
     A、init_chkcpu函数
         CPU自带检查方式：无法反转 Eflags第21位，表示CPU支持CPUID功能
         如果反转成功，说明不支持CPUID，打印内核错误并退出
@@ -15,7 +15,7 @@
         如果不支持，打印内核错误并退出
     C、设置mbsp中cpumode为64位
 
-3、返回chkcpmm.c，继续检测内存信息
+3、获取内存布局。返回chkcpmm.c，继续检测内存信息
     A、跳转到chkcpmm.c的init_mem函数
     B、通过mmap调用realadr_call_entry(RLINTNR(0),0,0)
     C、实际会执行ldrkrl32.asm的realadr_call_entry
@@ -38,7 +38,7 @@
 5、返回到bstartparm.c
     好像是确认了一下initldrsve.bin的状态，获取了一下文件内存地址及大小
 
-6、返回到bstartparm.c，继续调用到chkcpmm.c的init_krlinitstack函数
+6、返回到bstartparm.c，继续调用到chkcpmm.c的init_krlinitstack函数（初始化内核栈）
 
 7、然后调用到了fs.c的move_krlimg函数
     首先判断新申请的地址，是否可用
@@ -52,7 +52,7 @@
     初始化栈顶和栈大小
 
 9、返回到bstartparm.c
-    调用fs.c的init_krlfile函数，将Cosmos.eki加载到了IMGKRNL_PHYADR
+    调用fs.c的init_krlfile函数（放置内核文件与字库文件），将Cosmos.eki加载到了IMGKRNL_PHYADR
     并填写了mbsp相关内容
 
 10、返回到bstartparm.c
@@ -62,7 +62,7 @@
 
 
 11、返回到bstartparm.c
-    调用了chkcpmm.c的init_bstartpages
+    调用了chkcpmm.c的init_bstartpages（建立MMU页表数据）
 
 12、然后调用到了fs.c的move_krlimg函数申请了内存，建立了MMU页表：
     顶级页目录，开始于0x1000000
@@ -75,7 +75,7 @@
     最后，把页表首地址保存在机器信息结构中
 
 13、返回到bstartparm.c
-    调用了graph.c的init_graph
+    调用了graph.c的init_graph（设置图形模式）
     A、初始化了数据结构
 
     B、调用init_bgadevice
@@ -104,6 +104,23 @@
     再往下是jmp 0x2000000
     这个地址就是IMGKRNL_PHYADR，就是刚才放Cosmos.eki的位置
 
-15、然后就接上了本节最后一部分内容了
+15、然后就接上了本节最后一部分内容了，不容易啊！哈哈哈！
+    Cosmos.bin中【前面写错为Cosmos.eki了】，ld设置的程序入口为init_entry.asm的_start:
+
+16、 init_entry.asm中_start:
+    A、关闭中断
+    B、通过LGDT命令，指定长度和初始位置，加载GDT
+    C、设置页表，开启PAE【CR4第五位设置为1】，将页表顶级目录放入CR3
+    D、读取EFER，将第八位设置为1，写回EFER，设置为长模式
+    E、开启保护模式【CR0第0位设置为1】，开启分页【CR0第31位设置为1】，开启CACHE【CR0第30位设置为0】，开启WriteThrough【CR0第29位设置为0】
+    F、初始化寄存器们
+    G、将之前复制到Cosmos.bin之后的mbsp地址，放入rsp
+    H、0入栈，0x8入栈， hal_start 函数地址入栈
+    I、调用机器指令“0xcb48”，做一个“返回”操作，同时从栈中弹出两个数据[0x8：hal_start 函数地址]，到[CS：RIP]
+    长模式下，指令寄存器为RIP，也就是说下一个指令为hal_start 函数地址
+    CS中为0x8，对应到ekrnl_c64_dsc，对应到内核代码段，可以执行，CPU继续冲RIP地址执行
+
+17、hal_start.c
+    A、执行hal_start函数
 
 ```
