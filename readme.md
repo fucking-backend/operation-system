@@ -28,6 +28,8 @@
 
 [清华uCore](https://github.com/kiukotsu/ucore)
 
+[x86架构操作系统内核的实现](http://wiki.0xffffff.org/)
+
 ### 计算机组成原理参考书
 
     《计算机是怎样跑起来的》
