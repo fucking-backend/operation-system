@@ -26,9 +26,15 @@
 
 [清华rCore](https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/index.html)
 
-[清华uCore](https://github.com/kiukotsu/ucore)
+[清华uCore ](https://github.com/kiukotsu/ucore)
 
 [x86架构操作系统内核的实现](http://wiki.0xffffff.org/)
+
+[操作系统的基本原理与简单实现———基于ucore OS + RISC-V](https://www.bookstack.cn/read/simple_os_book/README.md)
+
+[操作系统真象还原](https://blog.csdn.net/zhwenx3/category_10385326.html)
+
+[ Linux 0.11 核心代码](https://github.com/sunym1993/flash-linux0.11-talk)
 
 ### 计算机组成原理参考书
 
@@ -44,4 +50,11 @@
     《程序员的自我修养：链接、装载和库》
     《大话计算机》
     
+### 常用标记符号
+
+😄😄😄
+🔥🔥🔥
+😅😅😅
+🐷🐷🐷
+🉑🉑🉑
     
