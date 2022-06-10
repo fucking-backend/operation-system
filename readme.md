@@ -1,20 +1,4 @@
-## 参考资料
-
-    《操作系统 —— 清华大学》
-    《操作系统 —— 哈工大》
-    《现代操作系统》
-    《操作系统导论》
-    《深入理解计算机系统》
-    
-
-    
-    《鸟哥的Linux私房菜》
-    《深入linux内核架构》
-    《Linux内核完全注释》
-    《操作系统45讲——彭东》
-    《深度探索嵌入式操作系统》
-
-### Lab实验
+## Lab实验
 
 [6.828](https://pdos.csail.mit.edu/6.828/2017/)
 
@@ -22,11 +6,11 @@
 
 [MIT6.828-神级OS课程](https://zhuanlan.zhihu.com/p/74028717)
 
-[南京大学计算机实验](https://nju-projectn.github.io/ics-pa-gitbook/ics2020/)
+[南京大学计算机实验 🔥🔥🔥](https://nju-projectn.github.io/ics-pa-gitbook/ics2020/)
 
 [清华rCore](https://rcore-os.github.io/rCore-Tutorial-Book-v3/chapter0/index.html)
 
-[清华uCore ](https://github.com/kiukotsu/ucore)
+[清华uCore 🔥🔥🔥](https://github.com/kiukotsu/ucore)
 
 [x86架构操作系统内核的实现](http://wiki.0xffffff.org/)
 
@@ -49,6 +33,13 @@
     《编码：隐匿在计算机软硬件背后的语言》
     《程序员的自我修养：链接、装载和库》
     《大话计算机》
+
+    《深入理解计算机系统》
+    《鸟哥的Linux私房菜》
+    《深入linux内核架构》
+    《Linux内核完全注释》
+    《操作系统45讲——彭东》
+    《深度探索嵌入式操作系统》
     
 ### 常用标记符号
 
