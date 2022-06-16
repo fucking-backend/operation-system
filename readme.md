@@ -20,11 +20,14 @@
 
 [ Linux 0.11 核心代码](https://github.com/sunym1993/flash-linux0.11-talk)
 
-### cs144
+### cs144(基于C++)
 
-[cs144-lab](https://zhuanlan.zhihu.com/p/175998415)
 [CS 144: Introduction to Computer Networking, Fall 2021](https://cs144.github.io/)
+
 [cs144-lab 🔥🔥🔥](https://www.cnblogs.com/kangyupl/p/stanford_cs144_labs.html)
+[Stanford CS144](https://sukunahust.com/?s=144)
+[CS144 Lab0](http://doraemonzzz.com/2021/12/12/2021-12-12-CS144-Lab0/)
+[cs144-lab](http://yuzijun.life/2021-02/CS144)
 
 ### 计算机组成原理参考书
 
