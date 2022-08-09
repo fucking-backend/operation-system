@@ -84,9 +84,7 @@ External grep (:grep).
 
 ### Browsing Files With Netrw
 
-- 帮助文档
-
-【 :h netrw 】
+> :h netrw
 
 ```sh
 # netrw 是 Vim 的内置文件浏览器。查看项目的层次结构很有用。要运行 netrw，您需要在 .vimrc 中进行这两个设置
