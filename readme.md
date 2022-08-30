@@ -51,6 +51,10 @@
     《深度探索嵌入式操作系统》
     
     《Writing an Interpreter In Go》
+
+### 其他
+
+[代码英雄 Command Line Heroes](https://linux.cn/talk/clh/index.php?page=1)
     
 ### 常用标记符号
 
