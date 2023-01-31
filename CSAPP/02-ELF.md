@@ -60,11 +60,26 @@
 7. ldd命令
 8. gcc -static 纯静态编译；gcc -shared
 9. gcc -fno-pie -no-pie 固定入口pc位置
+
 10. ELF Header 数据结构；Magic魔数，SYSV版本，GUN/Linux版本；e_type
 11. readelf 命令
 12. c语言解释器，解决load，link(类似于python解释器，不过作用不一样)
+
 13. Program Header 数据结构（类似tcp头），用以描述Segments
 14. readelf --segments； readelf -lW
+15. Section to Segment mapping
 
-【ELF Header】、【Program Header】
+16. Section Header 数据结构
+17. SymbolTableEntry
+18. Address指内存位置，Offset指elf文件中（硬盘中）的位置
+19. readelf --sections
+
+20. elf文件内容，物理上连续的片段，一些头（Program Header，Section Header），elf类似数据库，存储链接需要的信息
+21. main函数之前做了哪些事，源码怎么变成可执行文件
+
+【ELF Header】、【Program Header】、【Section Header】
+
+### Symbol Resolution
+
+
 
