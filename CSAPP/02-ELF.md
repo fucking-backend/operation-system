@@ -41,11 +41,30 @@
 9. line
 10. strtab 字符串常量
 
-
-### symbol数据结构
-
-1. Elf64_Symbol (name,type,binding,section,value,size)
+11. symbol数据结构 Elf64_Symbol (name,type,binding,section,value,size)
 
 ### 链接器工作原理
 
 1. linker链接多个资源文件时，主要查symbols表
+2. 找到symbol
+3. 运行时链接symbol
+
+### ELF(Executable and Linkable Format)【磁盘文件】
+
+1. 微软用exe,dll格式
+2. Executable，Shared library，Object file
+3. Segments（为执行runtime，执行视图，会被真正加载到内存），Sections（为link做准备，库文件）
+4. 可执行的文件，一定有Segments，可以没有Sections
+5. 对于只能链接不能执行的文件，只有Sections，没有Segments
+6. 静态链接（go，rust把所有的库文件依赖都打包），动态链接（打包必须的，其他以来部分引用library function of dynamically linked）
+7. ldd命令
+8. gcc -static 纯静态编译；gcc -shared
+9. gcc -fno-pie -no-pie 固定入口pc位置
+10. ELF Header 数据结构；Magic魔数，SYSV版本，GUN/Linux版本；e_type
+11. readelf 命令
+12. c语言解释器，解决load，link(类似于python解释器，不过作用不一样)
+13. Program Header 数据结构（类似tcp头），用以描述Segments
+14. readelf --segments； readelf -lW
+
+【ELF Header】、【Program Header】
+
