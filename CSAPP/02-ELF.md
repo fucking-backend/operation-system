@@ -89,6 +89,12 @@
 6. make 编译可执行文件、o文件、静态链接的文件、动态链接的文件； file查看文件；readelf -S -h -l -all -w； ldd查看依赖
 7. Section Header
 8. 为什么要静态依赖，分发部署方便
-9. Dynamic Section
-
+9. Dynamic Section作用；RPATH；init，main，fini；
+10. Relocation Section；rela 
+11. Symbol Table；dymsym（Dynamic symbol）
+13. bss
+14. 标准的可执行文件hello elf内容
+15. objdump命令； -d(反汇编) -s 
+16. 文件中叫【偏移】，内存中叫【地址】
+17. 
 
