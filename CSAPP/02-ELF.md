@@ -52,8 +52,8 @@
 ### ELF(Executable and Linkable Format)【磁盘文件】
 
 1. 微软用exe,dll格式
-2. Executable，Shared library，Object file
-3. Segments（为执行runtime，执行视图，会被真正加载到内存），Sections（为link做准备，库文件）
+2. Executable，Shared library动态链接库，Object file，coredump
+3. Segments（【为执行runtime，执行视图，会被真正加载到内存】），Sections（【为link做准备，库文件】）
 4. 可执行的文件，一定有Segments，可以没有Sections
 5. 对于只能链接不能执行的文件，只有Sections，没有Segments
 6. 静态链接（go，rust把所有的库文件依赖都打包），动态链接（打包必须的，其他以来部分引用library function of dynamically linked）
@@ -81,5 +81,14 @@
 
 ### Symbol Resolution
 
+1. [Executable and Linkable Format](https://en.wikipedia.org/wiki/Executable_and_Linkable_Format)
+2. Program Header， Segment；【为执行runtime，执行视图，会被真正加载到内存】
+3. Section Header； 【为link做准备，库文件】
+4. ELF a Linux executable walkthrough
+5. coredump文件
+6. make 编译可执行文件、o文件、静态链接的文件、动态链接的文件； file查看文件；readelf -S -h -l -all -w； ldd查看依赖
+7. Section Header
+8. 为什么要静态依赖，分发部署方便
+9. Dynamic Section
 
 
