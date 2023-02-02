@@ -94,7 +94,28 @@
 11. Symbol Table；dymsym（Dynamic symbol）
 13. bss
 14. 标准的可执行文件hello elf内容
-15. objdump命令； -d(反汇编) -s 
+15. objdump命令； -d(反汇编) -s -t
 16. 文件中叫【偏移】，内存中叫【地址】
-17. 
+17. readelf，objdump
 
+
+###  Symbol Resolution （没懂）
+
+1. 什么是symbol: function，全局/局部变量
+2. 函数名的意义
+3. link editor
+4. rela section
+5. ls -lthr
+6. rel.text,rel.data 留白
+7. 特殊的section类型：COMMON，UNDEF
+8. 一个函数由一个lib提供（一对一）；一个函数多个lib提供（一对多）；
+9. extern 类型
+10. 弱symbol，强symbol
+11. *((int*)&x) 
+12. symbol中，一个强类型遇到一个弱类型的坑
+
+
+### 连接器
+
+1. 程序生成阶段：compile编译，link链接，load装载和relocation，runtime
+2. 
