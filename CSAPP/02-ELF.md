@@ -133,4 +133,11 @@
 13. LD_LIBRARY_PATH=. ./main 当前命令生效; export LD_LIBRARY_PATH=. 当前shell生效 
 14. 直接依赖和间接依赖的关系
 15. ldd main; readelf -d main
-16. rpath rpath-link区别
+16. rpath rpath-link(只在link期起作用)
+17. patchelf --print-rpath
+18. 学思想设计理念出发点（为什么这么做，有什么好处），看文档，读代码
+19. [ELF_Format!!!!!!](http://www.skyfree.org/linux/references/ELF_Format.pdf)  【思想设计理念】
+20. relocatable，executable，shared object; Linking View，Execution View; ELF Header，Section Header，Symbol Table，Relocation(rela)
+21. /usr/include/elf.h 【代码】
+22. man elf
+23. 
