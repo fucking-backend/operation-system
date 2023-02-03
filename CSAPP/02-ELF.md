@@ -106,16 +106,31 @@
 3. link editor
 4. rela section
 5. ls -lthr
-6. rel.text,rel.data 留白
+6. 【rel.text】,【rel.data】 留白
 7. 特殊的section类型：COMMON，UNDEF
 8. 一个函数由一个lib提供（一对一）；一个函数多个lib提供（一对多）；
 9. extern 类型
 10. 弱symbol，强symbol
 11. *((int*)&x) 
 12. symbol中，一个强类型遇到一个弱类型的坑
+13. dynamic
 
 
-### 连接器
+### linker连接器顺序问题
 
 1. 程序生成阶段：compile编译，link链接，load装载和relocation，runtime
-2. 
+2. symbol供需关系。 
+3. resolve解决匹配问题； relocation重定位
+4. https://stackoverflow.com/questions/45135/why-does-the-order-in-which-libraries-are-linked-sometimes-cause-errors-in-gcc
+5. link order: static; 
+6. ar命令； gcc -L 编译的时候在当前目录搜索； ld ; gcc -Wl,as-needed; ld verbose; ld -T;gcc -Wl,-T; ldd 查看依赖； 
+7. 【静态链接库】：需求在前main（rel.text中标记），供给在后sum
+8. dynamic object，dynamic lib
+9. gcc -fpic -shared, pic类似pie（编译器产生跟位置无关的代码）
+10. ld --help | grep shared 
+11. 编译期，链接期，运行期；不同的文件格式（o文件，c文件）处于不同的阶段
+12. ld 环境变量 rpath rpath-link RD_RUN_PATH LD_LIBRARY_PATH
+13. LD_LIBRARY_PATH=. ./main 当前命令生效; export LD_LIBRARY_PATH=. 当前shell生效 
+14. 直接依赖和间接依赖的关系
+15. ldd main; readelf -d main
+16. rpath rpath-link区别
