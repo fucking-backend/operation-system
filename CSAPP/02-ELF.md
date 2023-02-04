@@ -140,4 +140,23 @@
 20. relocatable，executable，shared object; Linking View，Execution View; ELF Header，Section Header，Symbol Table，Relocation(rela)
 21. /usr/include/elf.h 【代码】
 22. man elf
-23. 
+23. objdump -d main.o，readelf -add main.o, rela在【静态链接】中的作用 解决占位符问题
+24.  rela在【动态链接】中的作用， Dynamic Section 动态链接库是供给方；  rela.plt rela.dym rela表是需求方
+
+
+
+### 可执行文件重定位 relocation
+
+1. symbol resolution 知道供需关系
+2. relocation 定位
+3. creating an Executable，merge section；update symbol references to their correct runtime address
+4. relocating code and data；Relocatable object file；Executable object file；
+5. main 函数作用 ，start要引用main
+6. readelf -s main.o 打印symbol； readelf -SW main.o; readelf -SW main；
+7. objdump -d main.o 有占位符；readelf -r main.o； objdump -dx main.o
+8. 在main.o中找变量array和函数sum （没懂）
+9. 静态relocation问题
+
+### 动态链接 dynamic link
+
+1. 
