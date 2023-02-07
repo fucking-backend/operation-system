@@ -159,4 +159,27 @@
 
 ### 动态链接 dynamic link
 
-1. 
+1. static linking， link everything at build time
+2. dynamic link， keep libraries in different files
+3. 动态链接为什么存在有什么优势，部分更新、内存中只需要一份。fast、good、cheap三者只能取二
+4. 动态链接需要三部分配合，编译链接时要提供足够的辅助信息，执行时需要装载器，动态调用时再去加载函数
+5. 动态链接劣势，文件打碎分散开后，库找不到，库版本不对，符号不对
+6. [cs361 UIC](https://www.cs.uic.edu/~ckanich/cs361/f20/)
+7. Executable on disk(ELF),Executable in memory（memory layout）
+8. Program header（加载到内存中时用到，是section的组合） ， Section header(elf中的最小单位，编译链接期用)
+9. readelf -lW hello.out | less
+10. .bss 
+
+11. ELF header中Entry point address代表程序入口，第一条指令_start, 再执行libc_start_main
+12. readelf -h hello ; objdump -Sd hello
+13. [glibc](https://github.com/bminor/glibc), 启动流程，追踪如何调用main， call_init, atexit(fini)
+14. init,fini,text构成代码区
+15. libc_start_main -> _init -> main, init和fini的作用，profiling衡量性能
+16. glibc在main启动之前做了哪些工作， ld过程，_start 
+
+17. Shared vs Static
+18. dynamic link challenge：shared memory如何放置shared library，此过程高度动态（position independent code）； 
+19. 动态链接需要两步：linking（三步），理清供需关系；load time（三步）
+20. 库之间symbol的问题分为变量和函数。Variables 临时变量【GOT表】，加一层解决问题； Functions 懒加载，第一次运行的时候加载，后续直接使用缓存， PLT（procedure Linkage Table过程链接表），代码区只读数据去可变
+21. 
+
