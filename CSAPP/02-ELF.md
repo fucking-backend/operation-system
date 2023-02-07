@@ -181,5 +181,9 @@
 18. dynamic link challenge：shared memory如何放置shared library，此过程高度动态（position independent code）； 
 19. 动态链接需要两步：linking（三步），理清供需关系；load time（三步）
 20. 库之间symbol的问题分为变量和函数。Variables 临时变量【GOT表】，加一层解决问题； Functions 懒加载，第一次运行的时候加载，后续直接使用缓存， PLT（procedure Linkage Table过程链接表），代码区只读数据去可变
-21. 
+
+21. PTL过程：(1) 跳转到GOT (2) 将function ID压栈 (3) 跳转到PTL[0]
+22. PTL[0]作用, dynamic linker
+23. plt, got.plt
+24. 
 
