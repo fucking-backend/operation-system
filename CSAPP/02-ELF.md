@@ -185,5 +185,6 @@
 21. PTL过程：(1) 跳转到GOT (2) 将function ID压栈 (3) 跳转到PTL[0]
 22. PTL[0]作用, dynamic linker
 23. plt, got.plt
-24. 
+24. 使用gdb插件 pwngdb、GEF，调试过程
+25. 动态链接过程（调用两次printf的例子）
 
