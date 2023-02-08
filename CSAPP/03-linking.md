@@ -11,4 +11,9 @@
 9. symtab的数据结构 Elf64_Symbol；
 10. 特殊的section： ABS，UND，COM
 11. COMMON和.bss区别
-12. 
+12. 符号解析，undefined reference 链接期错误
+13. 解析多重定义的情况，强、弱、类型， multiple definition
+14. gee -fno-common（或者werror） 暴露重名问题，
+15. extern定义变量
+16. 与静态库链接
+17. 
