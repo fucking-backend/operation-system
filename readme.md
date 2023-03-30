@@ -33,11 +33,15 @@
 
 [数据库系统](https://zhuanlan.zhihu.com/p/85890799)
 
-CS144 🌟🌟🌟
+CS144 计算机网络 🌟🌟🌟
 
 MIT 6.824 🌟🌟🌟   [关于6.824](https://zhuanlan.zhihu.com/p/110168818)
 
-15445 🌟🌟🌟
+15445 数据库系统 🌟🌟🌟
+
+CMU 15-721 高级数据库系统
+
+[cmu 15213](https://www.cs.cmu.edu/~213/)
 
 https://wdxtub.com/categories/CSAPP/
 
@@ -55,6 +59,8 @@ cs186
 
 [如何用 JavaScript 语言模拟 GameBoy 的硬件，可以用来了解硬件知识](http://imrannazar.com/GameBoy-Emulation-in-JavaScript:-The-CPU)
 
+
+[实现c编译器](https://www.bilibili.com/video/BV1Jy4y1d7nq/?spm_id_from=333.999.0.0&vd_source=7729b7ed5590ea706aa1776774852022)
 
 ### 计算机组成原理参考书
 
